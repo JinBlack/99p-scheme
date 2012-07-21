@@ -8,4 +8,4 @@
   )
 
 ;test
-(display (element-at '(a b c d e) -1))
+(display (element-at '(a b c d e) 3))
