@@ -1,0 +1,37 @@
+#lang scheme
+(define (pack l)
+  (if (null? l)
+      l
+      (cons (pacco l) (pack (resto l)))
+      )
+  )
+(define (pacco l)
+  (if (pair? (cdr l))
+      (if (equal? (car l) (car (cdr l)))
+          (cons (car l) (pacco (cdr l)))
+          (cons (car l) '())
+          )
+       l
+    )
+  )
+(define (resto l)
+    (if (and (pair? l) (pair? (cdr l)))
+        
+        (if (equal? (car l) (car (cdr l)))
+            (resto (cdr l))
+            (cdr l)
+            )
+        '()
+    )
+  )
+
+;;test
+(display (pacco '(a)))
+(newline)
+(display (resto '(r)))
+(newline)
+(display (pacco '(a a a a b b b)))
+(newline)
+(display (resto '(a a a a b b b c d e)))
+(newline)
+(display (pack '(a a a b b b c c d e r r r)))
